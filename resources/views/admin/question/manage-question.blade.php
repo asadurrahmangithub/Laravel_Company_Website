@@ -17,22 +17,22 @@
             <div class="table-responsive text-nowrap">
                 <table class="table table-dark">
                     <thead>
-                    <tr class="row col-mb-12">
-                        <th class="col-md-1">No</th>
-                        <th class="col-md-4">Question</th>
-                        <th class="col-md-5">Question Ans</th>
-                        <th class="col-md-1">Status</th>
-                        <th class="col-md-1">Actions</th>
+                    <tr>
+                        <th>No</th>
+                        <th>Question</th>
+                        <th>Question Ans</th>
+                        <th>Status</th>
+                        <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
                     <?php $i=1 ?>
                     @foreach($questions as $question)
-                        <tr class="row col-mb-12">
-                            <td class="col-md-1">{{$i}}</td>
-                            <td class="col-md-4">{!! substr($question->question,0,20) !!}....</td>
-                            <td class="col-md-5">{!! substr($question->question_ans,0,20) !!}...</td>
-                            <td class="col-md-1">
+                        <tr>
+                            <td>{{$i}}</td>
+                            <td>{!! substr($question->question,0,20) !!}....</td>
+                            <td>{!! substr($question->question_ans,0,20) !!}...</td>
+                            <td>
                                 @if($question->publication_status==1)
 
                                     <a href="{{route('question-publication-status',['id'=>$question->id])}}" class="btn btn-success btn-xs" title="UnPublished">Public
@@ -44,7 +44,7 @@
                                     </a>
                                 @endif
                             </td>
-                            <td class="col-md-1">
+                            <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                         <i class="bx bx-dots-vertical-rounded"></i>

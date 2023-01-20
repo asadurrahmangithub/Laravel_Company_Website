@@ -249,6 +249,26 @@
                 </li>
             </ul>
         </li>
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">Setting Page</span></li>
+        <!-- Forms -->
+        <li class="menu-item @yield('active-setting')">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div data-i18n="Form Elements">Site Setting</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item @yield('menu-logo')">
+                    <a href="{{route('create-logo')}}" class="menu-link">
+                        <div data-i18n="Basic Inputs">Add Logo</div>
+                    </a>
+                </li>
+                <li class="menu-item @yield('add-footer')">
+                    <a href="{{route('create-footer')}}" class="menu-link">
+                        <div data-i18n="Basic Inputs">Add Footer</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
 
     </ul>
 </aside>

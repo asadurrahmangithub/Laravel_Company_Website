@@ -10,21 +10,8 @@ use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\FrontEnd\FrontEndController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\SettingController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-//Route::get('/', function () {
-//    return view('welcome');
-//});
 
 Route::controller(FrontEndController::class)->group(function () {
     Route::get('/', 'index')->name('home');
@@ -34,13 +21,14 @@ Route::controller(FrontEndController::class)->group(function () {
 
 });
 
+//Route::middleware(['auth', 'verified','role:user'])->group(function () {
+//    Route::controller(FrontEndController::class)->group(function () {
+//        Route::get('/', 'index')->name('home');
+//
+//    });
+//});
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified','role:user'])->name('dashboard');
-
-
-
+require __DIR__.'/auth.php';
 /***********************Start Dashboard All Route*******************************/
 Route::group(['middleware'=>'disable_back_btn'],function () {
     Route::middleware(['auth', 'verified','role:admin'])->group(function () {
@@ -163,9 +151,16 @@ Route::group(['middleware'=>'disable_back_btn'],function () {
             Route::get('/admin/logout', 'destroy')->name('admin-logout');
         });
 
+        //******************** Site Setting ****************************
+        Route::controller(SettingController::class)->group(function () {
+            Route::get('/admin/setting-footer', 'index')->name('create-footer');
+            Route::post('/admin/setting-footer', 'store')->name('save-footer');
+
+            Route::get('/admin/setting-logo', 'logo')->name('create-logo');
+            Route::post('/admin/setting-logo', 'logoUpload')->name('logo-upload');
+        });
+
 
     });
 });
 /***********************End Dashboard All Route*******************************/
-
-require __DIR__.'/auth.php';

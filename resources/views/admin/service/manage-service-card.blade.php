@@ -17,24 +17,24 @@
             <div class="table-responsive text-nowrap">
                 <table class="table table-dark">
                     <thead>
-                    <tr class="row col-mb-12">
-                        <th class="col-md-1">No</th>
-                        <th class="col-md-3">Icon Class</th>
-                        <th class="col-md-2">Card Title</th>
-                        <th class="col-md-3">Sub Card Title</th>
-                        <th class="col-md-2">Status</th>
-                        <th class="col-md-1">Actions</th>
+                    <tr>
+                        <th>No</th>
+                        <th>Icon Class</th>
+                        <th>Card Title</th>
+                        <th>Sub Card Title</th>
+                        <th>Status</th>
+                        <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
                     <?php $i=1 ?>
                     @foreach($service_cards as $service_card)
-                        <tr class="row col-mb-12">
-                            <td class="col-md-1">{{$i}}</td>
-                            <td class="col-md-3">{{$service_card->service_icon_class}}</td>
-                            <td class="col-md-2">{!! substr($service_card->service_card_title,0,20) !!}</td>
-                            <td class="col-md-3">{!! substr($service_card->service_card_subtitle,0,30) !!}</td>
-                            <td class="col-md-2">
+                        <tr>
+                            <td>{{$i}}</td>
+                            <td>{{$service_card->service_icon_class}}</td>
+                            <td>{!! substr($service_card->service_card_title,0,20) !!}</td>
+                            <td>{!! substr($service_card->service_card_subtitle,0,30) !!}</td>
+                            <td>
                                 @if($service_card->publication_status==1)
 
                                     <a href="{{route('service-card-publication-status',['id'=>$service_card->id])}}" class="btn btn-success btn-xs" title="UnPublished">Public
@@ -46,7 +46,7 @@
                                     </a>
                                 @endif
                             </td>
-                            <td class="col-md-1">
+                            <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                         <i class="bx bx-dots-vertical-rounded"></i>

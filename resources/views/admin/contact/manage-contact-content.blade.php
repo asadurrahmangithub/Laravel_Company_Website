@@ -17,24 +17,24 @@
             <div class="table-responsive text-nowrap">
                 <table class="table table-dark">
                     <thead>
-                    <tr class="row col-mb-12">
-                        <th class="col-md-1">No</th>
-                        <th class="col-md-2">Icon Class</th>
-                        <th class="col-md-3">Info Title</th>
-                        <th class="col-md-4">Info SubTitle</th>
-                        <th class="col-md-1">Status</th>
-                        <th class="col-md-1">Actions</th>
+                    <tr>
+                        <th>No</th>
+                        <th>Icon Class</th>
+                        <th>Info Title</th>
+                        <th>Info SubTitle</th>
+                        <th>Status</th>
+                        <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
                     <?php $i=1 ?>
                     @foreach($contact_infos as $contact_info)
-                        <tr class="row col-mb-12">
-                            <td class="col-md-1">{{$i}}</td>
-                            <td class="col-md-2">{{$contact_info->contact_icon_class}}</td>
-                            <td class="col-md-3">{!! substr($contact_info->contact_info_title,0,20) !!}</td>
-                            <td class="col-md-4">{!! substr($contact_info->contact_info_subtitle,0,30) !!}</td>
-                            <td class="col-md-1">
+                        <tr>
+                            <td>{{$i}}</td>
+                            <td>{{$contact_info->contact_icon_class}}</td>
+                            <td>{!! substr($contact_info->contact_info_title,0,20) !!}</td>
+                            <td>{!! substr($contact_info->contact_info_subtitle,0,30) !!}</td>
+                            <td>
                                 @if($contact_info->publication_status==1)
 
                                     <a href="{{route('contact-info-publication-status',['id'=>$contact_info->id])}}" class="btn btn-success btn-xs" title="UnPublished">Public
@@ -46,7 +46,7 @@
                                     </a>
                                 @endif
                             </td>
-                            <td class="col-md-1">
+                            <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                         <i class="bx bx-dots-vertical-rounded"></i>

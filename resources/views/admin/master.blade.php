@@ -69,8 +69,8 @@
         <!-- / Navbar -->
 
             <!-- Content wrapper -->
-            @yield('content')
-            <!-- Content wrapper -->
+        @yield('content')
+        <!-- Content wrapper -->
         </div>
         <!-- / Layout page -->
     </div>

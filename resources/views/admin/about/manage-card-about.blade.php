@@ -17,24 +17,24 @@
             <div class="table-responsive text-nowrap">
                 <table class="table table-dark">
                     <thead>
-                    <tr class="row col-mb-12">
-                        <th class="col-md-1">No</th>
-                        <th class="col-md-3">Icon Class</th>
-                        <th class="col-md-2">Card Title</th>
-                        <th class="col-md-3">Sub Card Title</th>
-                        <th class="col-md-2">Status</th>
-                        <th class="col-md-1">Actions</th>
+                    <tr>
+                        <th>No</th>
+                        <th>Icon Class</th>
+                        <th>Card Title</th>
+                        <th>Sub Card Title</th>
+                        <th>Status</th>
+                        <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
                     <?php $i=1 ?>
                     @foreach($about_cards as $about_card)
-                        <tr class="row col-mb-12">
-                            <td class="col-md-1">{{$i}}</td>
-                            <td class="col-md-3">{{$about_card->about_icon_class}}</td>
-                            <td class="col-md-2">{!! substr($about_card->about_card_title,0,10) !!}</td>
-                            <td class="col-md-3">{!! substr($about_card->about_sub_card_title,0,20) !!}</td>
-                            <td class="col-md-2">
+                        <tr>
+                            <td>{{$i}}</td>
+                            <td>{{$about_card->about_icon_class}}</td>
+                            <td>{!! substr($about_card->about_card_title,0,10) !!}</td>
+                            <td>{!! substr($about_card->about_sub_card_title,0,20) !!}</td>
+                            <td>
                                 @if($about_card->publication_status==1)
 
                                     <a href="{{route('card-publication-status',['id'=>$about_card->id])}}" class="btn btn-success btn-xs" title="UnPublished">Public
@@ -46,7 +46,7 @@
                                     </a>
                                 @endif
                             </td>
-                            <td class="col-md-1">
+                            <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                         <i class="bx bx-dots-vertical-rounded"></i>

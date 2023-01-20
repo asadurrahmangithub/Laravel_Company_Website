@@ -17,26 +17,26 @@
             <div class="table-responsive text-nowrap">
                 <table class="table table-dark">
                     <thead>
-                    <tr class="row col-mb-12">
-                        <th class="col-md-1">No</th>
-                        <th class="col-md-3">Title</th>
-                        <th class="col-md-3">Sub Title</th>
-                        <th class="col-md-2">Image</th>
-                        <th class="col-md-2">Status</th>
-                        <th class="col-md-1">Actions</th>
+                    <tr>
+                        <th>No</th>
+                        <th>Title</th>
+                        <th>Sub Title</th>
+                        <th>Image</th>
+                        <th>Status</th>
+                        <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
                     <?php $i=1 ?>
                     @foreach($abouts as $about)
-                        <tr class="row col-mb-12">
-                            <td class="col-md-1">{{$i}}</td>
-                            <td class="col-md-3">{!! substr($about->main_about_title,0,20) !!}</td>
-                            <td class="col-md-3">{!! substr($about->main_sub_about_title,0,30) !!}</td>
-                            <td class="col-md-2"><img src="{{asset($about->image)}}" alt="" style="height: 50px;width: 50px;"></td>
+                        <tr>
+                            <td>{{$i}}</td>
+                            <td>{!! substr($about->main_about_title,0,20) !!}</td>
+                            <td>{!! substr($about->main_sub_about_title,0,30) !!}</td>
+                            <td><img src="{{asset($about->image)}}" alt="" style="height: 50px;width: 50px;"></td>
                             {{--                        <td class="col-md-1">{{$slider->publication_status}}</td>--}}
 
-                            <td class="col-md-2">
+                            <td>
                                 @if($about->publication_status==1)
 
                                     <a href="{{route('main-publication-status',['id'=>$about->id])}}" class="btn btn-success btn-xs" title="UnPublished">Public
@@ -48,7 +48,7 @@
                                     </a>
                                 @endif
                             </td>
-                            <td class="col-md-1">
+                            <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                         <i class="bx bx-dots-vertical-rounded"></i>

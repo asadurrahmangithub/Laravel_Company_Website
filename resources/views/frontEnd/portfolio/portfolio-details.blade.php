@@ -28,17 +28,23 @@
                         <div class="portfolio-details-slider swiper">
                             <div class="swiper-wrapper align-items-center">
 
+                                @if($portfolio->image1)
                                 <div class="swiper-slide">
                                     <img src="{{asset($portfolio->image1)}}" alt="">
                                 </div>
+                                @endif
 
+                                @if($portfolio->image2)
                                 <div class="swiper-slide">
                                     <img src="{{asset($portfolio->image2)}}" alt="">
                                 </div>
+                                @endif
 
+                                @if($portfolio->image3)
                                 <div class="swiper-slide">
                                     <img src="{{asset($portfolio->image3)}}" alt="">
                                 </div>
+                                @endif
 
                             </div>
                             <div class="swiper-pagination"></div>

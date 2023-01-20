@@ -17,20 +17,20 @@
             <div class="table-responsive text-nowrap">
                 <table class="table table-dark">
                     <thead>
-                    <tr class="row col-mb-12">
-                        <th class="col-md-2">No</th>
-                        <th class="col-md-5">Question Title</th>
-                        <th class="col-md-3">Status</th>
-                        <th class="col-md-2">Actions</th>
+                    <tr>
+                        <th>No</th>
+                        <th>Question Title</th>
+                        <th>Status</th>
+                        <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
                     <?php $i=1 ?>
                     @foreach($question_titles as $question_title)
-                        <tr class="row col-mb-12">
-                            <td class="col-md-2">{{$i}}</td>
-                            <td class="col-md-5">{!! substr($question_title->question_title,0,30) !!}</td>
-                            <td class="col-md-3">
+                        <tr>
+                            <td>{{$i}}</td>
+                            <td>{!! substr($question_title->question_title,0,30) !!}</td>
+                            <td>
                                 @if($question_title->publication_status==1)
 
                                     <a href="{{route('question-title-publication-status',['id'=>$question_title->id])}}" class="btn btn-success btn-xs" title="UnPublished">Public
@@ -42,7 +42,7 @@
                                     </a>
                                 @endif
                             </td>
-                            <td class="col-md-2">
+                            <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                         <i class="bx bx-dots-vertical-rounded"></i>
