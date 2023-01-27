@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Favicon;
+use App\Models\Iframe;
 use App\Models\Logo;
 use App\Models\Setting;
 use Illuminate\Http\Request;
@@ -88,5 +90,101 @@ class SettingController extends Controller
         $imgUrl = $directory.$imageNewName;
         $image->move($directory, $imageNewName);
         return $imgUrl;
+    }
+
+    public function favicon(){
+        $favicon = Favicon::first();
+        return view('admin.setting.add-favicon',compact('favicon'));
+    }
+    public function storeFavicon(Request $request){
+        $favicon = Favicon::first();
+        if ($favicon){
+            if ($request->file('favicon_icon')) {
+                if (file_exists($favicon->favicon_icon)) {
+                    unlink($favicon->favicon_icon);
+                }
+                $favicon->update([
+                    $favicon->favicon_icon = $this->getFaviconIcon($request),
+                    'title' =>$request->title,
+                ]);
+            }
+            if ($request->file('apple_touch')) {
+                if (file_exists($favicon->apple_touch)) {
+                    unlink($favicon->apple_touch);
+                }
+                $favicon->update([
+                    $favicon->apple_touch = $this->getAppleTouch($request),
+                    'title' =>$request->title,
+                ]);
+            }
+            $favicon->update([
+                'title' =>$request->title,
+            ]);
+            return redirect()->back()->with('message','Favicon Update Successfully');
+
+        }
+        else{
+            if ($request->file('favicon_icon')) {
+                if ($request->file('apple_touch')) {
+                    Favicon::create([
+                        'favicon_icon' => $this->getFaviconIcon($request),
+                        'apple_touch' => $this->getAppleTouch($request),
+                        'title' =>$request->title,
+                    ]);
+                }
+                Favicon::create([
+                    'favicon_icon' => $this->getFaviconIcon($request),
+                    'title' =>$request->title,
+                ]);
+            }
+            if ($request->file('apple_touch')) {
+                Favicon::create([
+                    'apple_touch' => $this->getAppleTouch($request),
+                    'title' =>$request->title,
+                ]);
+            }
+            return redirect()->back()->with('message','Favicon Add Successfully');
+        }
+    }
+
+    private function getFaviconIcon($request)
+    {
+        $image = $request->file('favicon_icon');
+        $imageNewName = 'favicon_icon'.'-'.rand().'.'.$image->extension();
+        $directory = 'admin/custom-image/favicon-icon/';
+        $imgUrl = $directory.$imageNewName;
+        $image->move($directory, $imageNewName);
+        return $imgUrl;
+    }
+
+    private function getAppleTouch($request)
+    {
+        $image = $request->file('apple_touch');
+        $imageNewName = 'apple_touch_icon'.'-'.rand().'.'.$image->extension();
+        $directory = 'admin/custom-image/favicon-icon/';
+        $imgUrl = $directory.$imageNewName;
+        $image->move($directory, $imageNewName);
+        return $imgUrl;
+    }
+
+    public function iframe(){
+        $iframe = Iframe::first();
+        return view('admin.setting.add-iframe',compact('iframe'));
+    }
+    public function storeIframe(Request $request){
+        $iframe = Iframe::first();
+        if ($iframe){
+            $iframe->update([
+                'iframe_src' =>$request->iframe_src,
+            ]);
+            return redirect()->back()->with('message','Iframe Update Successfully');
+
+        }
+        else{
+            Iframe::create([
+                'iframe_src' =>$request->iframe_src,
+            ]);
+            return redirect()->back()->with('message','Iframe Add Successfully');
+        }
     }
 }

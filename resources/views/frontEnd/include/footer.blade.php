@@ -41,11 +41,11 @@
                 <div class="col-lg-3 col-md-6 footer-links">
                     <h4>Our Services</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a>Web Design</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a>Web Development</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a>App Development</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a>Marketing</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a>Graphic Design</a></li>
                     </ul>
                 </div>
 
@@ -78,14 +78,14 @@
 
     <div class="container py-4">
         <div class="copyright">
-            &copy; Copyright <strong><span>Ninestars</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>Creativebraintech</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
             <!-- All the links in the footer should remain intact. -->
             <!-- You can delete the links only if you purchased the pro version. -->
             <!-- Licensing information: https://bootstrapmade.com/license/ -->
             <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/ninestars-free-bootstrap-3-theme-for-creative/ -->
-            Designed by <a href="https://bootstrapmade.com/">Asadur Rahman</a>
+            Designed by <a>Asadur Rahman</a>
         </div>
     </div>
 </footer>

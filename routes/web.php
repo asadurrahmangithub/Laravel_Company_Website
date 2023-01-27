@@ -156,6 +156,12 @@ Route::group(['middleware'=>'disable_back_btn'],function () {
             Route::get('/admin/setting-footer', 'index')->name('create-footer');
             Route::post('/admin/setting-footer', 'store')->name('save-footer');
 
+            Route::get('/admin/setting-favicon', 'favicon')->name('create-favicon');
+            Route::post('/admin/setting-favicon', 'storeFavicon')->name('save-favicon');
+
+            Route::get('/admin/setting-iframe', 'iframe')->name('create-iframe');
+            Route::post('/admin/setting-iframe', 'storeIframe')->name('save-iframe');
+
             Route::get('/admin/setting-logo', 'logo')->name('create-logo');
             Route::post('/admin/setting-logo', 'logoUpload')->name('logo-upload');
         });

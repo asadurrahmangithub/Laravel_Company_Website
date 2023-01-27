@@ -6,7 +6,7 @@
     active
 @endsection
 @section('content')
-    <div class="container">
+    <div class="container mt-4">
         <div class="card">
             <h5 class="card-header">All Manage Home Slider Table</h5>
             @if(session()->has('message'))

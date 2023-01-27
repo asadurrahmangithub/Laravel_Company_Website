@@ -262,6 +262,16 @@
                         <div data-i18n="Basic Inputs">Add Logo</div>
                     </a>
                 </li>
+                <li class="menu-item @yield('favicon-icon')">
+                    <a href="{{route('create-favicon')}}" class="menu-link">
+                        <div data-i18n="Basic Inputs">Add Favicon</div>
+                    </a>
+                </li>
+                <li class="menu-item @yield('iframe')">
+                    <a href="{{route('create-iframe')}}" class="menu-link">
+                        <div data-i18n="Basic Inputs">Add Iframe</div>
+                    </a>
+                </li>
                 <li class="menu-item @yield('add-footer')">
                     <a href="{{route('create-footer')}}" class="menu-link">
                         <div data-i18n="Basic Inputs">Add Footer</div>
